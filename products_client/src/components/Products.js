@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import './Products.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Form, Col } from 'react-bootstrap';
 
 class Products extends Component {
     state = {
@@ -54,6 +56,26 @@ class Products extends Component {
         return(
             <div>
                 <h1>Federico Clothing Co.</h1>
+                {/* <Form>
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Text className="text-muted">
+                        We'll never share your email with anyone else.
+                        </Form.Text>
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="password" placeholder="Password" />
+                    </Form.Group>
+                    <Form.Group controlId="formBasicCheckbox">
+                        <Form.Check type="checkbox" label="Check me out" />
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </Form> */}
                 <div>
                     <h2>List an item</h2>
                     <form onSubmit={this.handleSubmit}>
@@ -65,8 +87,11 @@ class Products extends Component {
                         <input type='text' id='description' value={this.state.formInputs.description} onChange={this.handleChange}/><br/><br/>
                         <label htmlFor='image'>Product Image</label>
                         <input type='text' id='image' value={this.state.formInputs.image} onChange={this.handleChange}/><br/><br/>
-                        <input type='submit'/>
+                        <Button variant="primary" type="submit">
+                        Submit
+                        </Button>
                     </form>
+                        
                 </div>
                 {/* {this.state.formInputs.name} */}
                 {this.state.products.map(product => {
