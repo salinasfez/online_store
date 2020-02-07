@@ -95,18 +95,16 @@ class Products extends Component {
                     </form>
                     
                 </div>
-                <div>
+                <div className='flex-container'>
                     {/* {this.state.formInputs.name} */}
                     {this.state.products.map(product => {
                         return(
                             <div>
-                                <div>
+                                <div className='flex-item'>
                                     <h2>{product.name}</h2>
                                     <h4>{product.price}</h4>
                                     <h4>{product.description}</h4>
                                     <img src={product.image} alt=''/>
-                                    {console.log(this.state.products)}
-                                    {/* <img src={`https://scene7.zumiez.com/is/image/zumiez/pdp_hero/HUF-Flags-Grey-Hoodie--_306693.jpg`} alt={product.name}/> */}
                                 </div>
                             </div>    
                             )
