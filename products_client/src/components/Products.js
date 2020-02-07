@@ -25,8 +25,9 @@ class Products extends Component {
     handleChange = (event) => {
         const updateInput = Object.assign( this.state.formInputs, { [event.target.id]: event.target.value })
         this.setState(updateInput)
+        // console.log(event.target.value)
       }
-      handleSubmit = (event) => {
+    handleSubmit = (event) => {
         event.preventDefault();
         fetch('http://localhost:3000/products', {
             body: JSON.stringify(this.state.formInputs),
@@ -77,6 +78,7 @@ class Products extends Component {
                     </Button>
                 </Form> */}
                 <div>
+                    
                     <h2>List an item</h2>
                     <form onSubmit={this.handleSubmit}>
                         <label htmlFor='name'>Item</label>
@@ -91,20 +93,25 @@ class Products extends Component {
                         Submit
                         </Button>
                     </form>
-                        
+                    
                 </div>
-                {/* {this.state.formInputs.name} */}
-                {this.state.products.map(product => {
-                    return(
-                        <div>
+                <div>
+                    {/* {this.state.formInputs.name} */}
+                    {this.state.products.map(product => {
+                        return(
                             <div>
-                                <h2>{product.name}</h2>
-                                <h4>{product.price}</h4>
-                                <h4>{product.description}</h4>
-                            </div>
-                        </div>    
-                        )
-                })}
+                                <div>
+                                    <h2>{product.name}</h2>
+                                    <h4>{product.price}</h4>
+                                    <h4>{product.description}</h4>
+                                    <img src={product.image} alt=''/>
+                                    {console.log(this.state.products)}
+                                    {/* <img src={`https://scene7.zumiez.com/is/image/zumiez/pdp_hero/HUF-Flags-Grey-Hoodie--_306693.jpg`} alt={product.name}/> */}
+                                </div>
+                            </div>    
+                            )
+                    })}
+                </div>
             </div>
         )
     }
