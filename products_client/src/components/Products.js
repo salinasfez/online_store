@@ -54,6 +54,16 @@ class Products extends Component {
         })
         .catch(error => console.log(error));
       }
+      deleteProduct = (id, index) => {
+        fetch('http://localhost:3000/products/' + id, {
+          method: 'DELETE'
+        })
+        .then(() => {
+          this.setState({
+            products: [...this.state.products.slice(0, index), ...this.state.products.slice(index + 1)]
+          });
+        });
+      };
     render(){
         return(
             <div className='main-container'>
@@ -65,7 +75,7 @@ class Products extends Component {
                 <div className='form'>
                     <h2>List an item</h2>
                     <form onSubmit={this.handleSubmit}>
-                        <label htmlFor='name'>&nbsp;&nbsp;Item</label>&nbsp;&nbsp;
+                        <label htmlFor='name'>&nbsp;Item</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type='text' id='name' value={this.state.formInputs.name} onChange={this.handleChange}/>
                         <label htmlFor='price'>&nbsp;&nbsp;Price</label>&nbsp;&nbsp;
                         <input type='number' id='price' value={this.state.formInputs.price} onChange={this.handleChange} /><br/><br/>
@@ -82,21 +92,39 @@ class Products extends Component {
                 <section className='products'>
                     
                     {/* {this.state.formInputs.name} */}
-                    {this.state.products.map(product => {
+                    {this.state.products.map((product, index) => {
                         return(
                             <div className='product-card'>
                                 <div className='product-image'>
                                     <img src={product.image} alt=''/>
                                 </div>
                                 <div className='product-info'>
-                                    <h2>{product.name}</h2>
+                                    <h4>{product.name}</h4>
                                     {/* <h4>{product.description}</h4> */}
-                                    <h4>${product.price}</h4>
+                                    <h5>${product.price}</h5>
+                                    <h6 onClick={() => this.deleteProduct(product._id, index)}>Remove Item</h6>
                                 </div>
                             </div>    
                             )
                     })}
                 </section>
+                <footer className='footer-container'>
+                    <ul className='footer-item'>
+                        <li>About us</li>
+                        <li>Locations</li>
+                        <li>Contact Us</li>
+                    </ul>
+                    <ul className='footer-item'>
+                        <li>Careers</li>
+                        <li>Promotions</li>
+                        <li>Special Pricing</li>
+                    </ul>
+                    <ul className='footer-item'>
+                        <li>Credit Card</li>
+                        <li>Employee Log In</li>
+                        <li>Manager Log In</li>
+                    </ul>
+                </footer>
             </div>
             
         )
