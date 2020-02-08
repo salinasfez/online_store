@@ -88,8 +88,8 @@ class Products extends Component {
                     </div>
                     <div className='for-him-her'>
                         
-                        <button>For Him</button>
-                        <button>For Her</button>
+                        <Button className='two-buttons'>For Him</Button>
+                        <Button className='two-buttons'>For Her</Button>
                     </div>
                 </div>
                 <section className='products'>

@@ -37,7 +37,10 @@
 }
 .form {
     color: white;
-    margin-left: 30px;
+    margin-left: 20px;
+    border: 3px solid gray;
+    padding: 10px;
+    border-radius: 1em;
 }
 footer {
     margin-top: 50px;
@@ -66,16 +69,20 @@ h6 {
     color: red;
 }
 #list-an-item {
-    border: 1px solid white;
     width: 80%;
-    padding: 2px;
     font-family: 'Quicksand', sans-serif;
 }
 .header-container {
     display: flex;
     flex-direction: row;
 }
-.for-him-her {
+.two-buttons {
+    width: 200px;
+    height: 60px;
+    margin-left: 90px;
+    font-family: 'Quicksand', sans-serif;
 
-    
+}
+#button {
+    font-family: 'Quicksand', sans-serif;
 }
