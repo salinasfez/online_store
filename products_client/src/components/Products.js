@@ -104,7 +104,7 @@ class Products extends Component {
                                 <div className='product-info'>
                                     <h4>{product.name}</h4>
                                     <h5>${product.price}</h5>
-                                    <h6 onClick={() => this.deleteProduct(product._id, index)}>Remove Item</h6>
+                                    <h6 onClick={() => this.deleteProduct(product.id, index)}>Remove Item</h6>
                                 </div>
                             </div>    
                             )
