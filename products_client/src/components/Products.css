@@ -1,9 +1,26 @@
-.br {
-    display: block;
-    margin-bottom: 5px;
-}
-.flex-container {
+.products {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    background-color: white;
+    margin-top: 50px;
+}
+.product-info {
+    margin-top: auto;
+}
+.product-card {
+    padding: 2%;
+    width: 28%;
+    max-height: 500px;
+}
+.product-image img {
+    max-width: 100%;
+}
+.main-container {
+    background-color: ivory;
+}
+.tab {
+    margin-left: 10px;
+}
+.header {
+    margin-left: 400px;
 }

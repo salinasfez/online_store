@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './Products.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Form, Col } from 'react-bootstrap';
+import { Button, Jumbotron } from 'react-bootstrap';
+
 
 class Products extends Component {
     state = {
@@ -55,62 +56,49 @@ class Products extends Component {
       }
     render(){
         return(
-            <div>
-                <h1>Federico Clothing Co.</h1>
-                {/* <Form>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
-                        <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                        </Form.Text>
-                    </Form.Group>
-
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Check me out" />
-                    </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
-                </Form> */}
-                <div>
-                    
+            <div className='main-container'>
+                <h1 className='header'>Federico Clothing Co.</h1>
+                {/* <Jumbotron>
+                    Hello World
+                </Jumbotron> */}
+                <div className='flex-container'/>
+                <div className='form'>
                     <h2>List an item</h2>
                     <form onSubmit={this.handleSubmit}>
-                        <label htmlFor='name'>Item</label>
-                        <input type='text' id='name' value={this.state.formInputs.name} onChange={this.handleChange}/><br/><br/>
-                        <label htmlFor='price'>Price</label>
+                        <label htmlFor='name'>&nbsp;&nbsp;Item</label>&nbsp;&nbsp;
+                        <input type='text' id='name' value={this.state.formInputs.name} onChange={this.handleChange}/>
+                        <label htmlFor='price'>&nbsp;&nbsp;Price</label>&nbsp;&nbsp;
                         <input type='number' id='price' value={this.state.formInputs.price} onChange={this.handleChange} /><br/><br/>
-                        <label htmlFor='description'>Item Description</label>
-                        <input type='text' id='description' value={this.state.formInputs.description} onChange={this.handleChange}/><br/><br/>
-                        <label htmlFor='image'>Product Image</label>
+                        <label htmlFor='description'>&nbsp;&nbsp;Description</label>&nbsp;&nbsp;
+                        <input type='text' id='description' value={this.state.formInputs.description} onChange={this.handleChange}/>
+                        <label htmlFor='image'>&nbsp;&nbsp;Image</label>&nbsp;&nbsp;
                         <input type='text' id='image' value={this.state.formInputs.image} onChange={this.handleChange}/><br/><br/>
-                        <Button variant="primary" type="submit">
+                        <Button variant="primary" id='button' type="submit">
                         Submit
                         </Button>
                     </form>
                     
                 </div>
-                <div className='flex-container'>
+                <section className='products'>
+                    
                     {/* {this.state.formInputs.name} */}
                     {this.state.products.map(product => {
                         return(
-                            <div>
-                                <div className='flex-item'>
-                                    <h2>{product.name}</h2>
-                                    <h4>{product.price}</h4>
-                                    <h4>{product.description}</h4>
+                            <div className='product-card'>
+                                <div className='product-image'>
                                     <img src={product.image} alt=''/>
+                                </div>
+                                <div className='product-info'>
+                                    <h2>{product.name}</h2>
+                                    {/* <h4>{product.description}</h4> */}
+                                    <h4>${product.price}</h4>
                                 </div>
                             </div>    
                             )
                     })}
-                </div>
+                </section>
             </div>
+            
         )
     }
 }
