@@ -68,7 +68,7 @@ class Products extends Component {
     render(){
         return(
             <div className='main-container'>
-                <h1 className='header'>Federico Clothing Co.</h1>
+                <h1 className='header'>Merchant Clothing Co.</h1>
                 <div className='header-container'>
                 <div className='form'>
                         <h2 id='list-an-item'>List an item</h2><br />
